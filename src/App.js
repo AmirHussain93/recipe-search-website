@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Form from './components/Form';
-import Recipes from './components/recipes';
+import Recipes from './components/Recipes';
 
 const API_KEY = '7738efcc285f0ff0dfcb63044a744030';
 class App extends Component {
