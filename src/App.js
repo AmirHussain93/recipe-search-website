@@ -1,25 +1,35 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Form from './components/Form';
+import Recipes from './components/recipes';
 
+const API_KEY = '7738efcc285f0ff0dfcb63044a744030';
 class App extends Component {
+
+  state = {
+    recipes: []
+  }
+
+  getRecipe = async (e) => {
+    const recipeName = e.target.elements.recipename.value;
+    e.preventDefault();
+    const api_call = await fetch(`https://www.food2fork.com/api/search?key=${API_KEY}&q=${recipeName}&count=10`);
+
+    const data = await api_call.json();
+    this.setState({
+      recipes: data.recipes
+    });
+    console.log(this.state.recipes);
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <h1 className="App-title">Recipe Search</h1>
         </header>
+        <Form getRecipe={this.getRecipe} />
+        <Recipes recipes={this.state.recipes} />
       </div>
     );
   }
