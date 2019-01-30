@@ -16,7 +16,8 @@ const Recipes = (props) => (
 											</h6>
 											<p className="">Publisher:<span> {recipe.publisher}</span></p>
 											<button className="btn btn-outline-dark">
-											<Link to={{ pathname: `/recipe/${recipe.recipe_id}`}}>View more</Link>
+											<Link to={{ pathname: `/recipe/${recipe.recipe_id}`,
+											state: {recipe: recipe.title}}}>View more</Link>
 											</button>
 										</div>
 								</div>
