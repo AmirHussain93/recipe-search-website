@@ -22,10 +22,10 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    if (this.state.recipes) {
-    const json = localStorage.getItem('recipies');
-    const recipes = JSON.parse(json);
-    
+    if (this.state.recipes.length > 0) {
+      const json = localStorage.getItem('recipies');
+      const recipes = JSON.parse(json);
+
       this.setState({
         recipes: recipes
       });
