@@ -15,7 +15,6 @@ class RecipeDescription extends Component {
 		this.setState({
 			activeRecipe:response.recipes[0]
 		})
-		console.log(this.state.activeRecipe);
 	}
 
 	render() {

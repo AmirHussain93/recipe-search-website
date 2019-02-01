@@ -19,11 +19,9 @@ class App extends Component {
     this.setState({
       recipes: data.recipes
     });
-    console.log(this.state.recipes);
   }
 
   componentDidMount = () => {
-    console.log('componentDidMount Fired');
     if (this.state.recipes) {
     const json = localStorage.getItem('recipies');
     const recipes = JSON.parse(json);
@@ -35,7 +33,6 @@ class App extends Component {
   }
 
   componentDidUpdate = () => {
-    console.log('componentDidUpdate Fired');
     const recipes = JSON.stringify(this.state.recipes);
     localStorage.setItem('recipies', recipes);
   }
