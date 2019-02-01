@@ -23,15 +23,19 @@ class App extends Component {
   }
 
   componentDidMount = () => {
+    console.log('componentDidMount Fired');
+    if (this.state.recipes) {
     const json = localStorage.getItem('recipies');
     const recipes = JSON.parse(json);
-
-    this.setState({
-      recipes: recipes
-    });
+    
+      this.setState({
+        recipes: recipes
+      });
+    }
   }
 
   componentDidUpdate = () => {
+    console.log('componentDidUpdate Fired');
     const recipes = JSON.stringify(this.state.recipes);
     localStorage.setItem('recipies', recipes);
   }
